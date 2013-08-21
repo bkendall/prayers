@@ -17,3 +17,4 @@ deploy:
 	cp ../../bin/server ../../deploy
 	cp -r templates/ ../../deploy
 	cp -r js_lib/ ../../deploy
+	cp Procfile ../../deploy
