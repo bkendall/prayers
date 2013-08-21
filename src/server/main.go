@@ -207,7 +207,7 @@ func main() {
         http.ServeFile(w, r, "js_lib/" + r.URL.Path[4:])
     })
 
-    port += os.Getenv("PRAYER_PORT")
-    if port == "": port = "80"
+    port := os.Getenv("PRAYER_PORT")
+    if port == "" { port = "80" }
     http.ListenAndServe(":" + port, nil)
 }
