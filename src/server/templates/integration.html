@@ -1,0 +1,23 @@
+<h1>Prayers</h1>
+<div>
+<table>
+{{range .}}
+<tr>
+ <td>{{.Created}}</td>
+ <td>{{.Title}}</td>
+ <td>{{.Body}}</td>
+ <td>{{.Prayers}}</td>
+ <td><a data-id="{{.Id}}" href="#" class="pray">Prayed for me</a></td>
+</tr>
+{{end}}
+</table>
+</div>
+<div>
+<form onSubmit="return false;">
+<input name="FirstName" placeholder="FirstName" /><br />
+<input name="LastName" placeholder="LastName" /><br />
+<input name="Email" placeholder="Email" /><br />
+<input name="Title" placeholder="Title" /><br />
+<textarea name="Body" placeholder="Body"></textarea><br />
+<a href="#" id="SubmitPrayer">Submit</a>
+</form>
