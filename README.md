@@ -14,7 +14,7 @@ The client integration is straight forward. At the minimum, the following will e
 <div id="prayers" data-integration="first"></div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="//prayers.bryankendall.com/js/prayers.js"></script>
-<noscript>Please enable javascript for prayers to load.</script>
+<noscript>Please enable javascript for prayers to load.</noscript>
 ```
 
-We're making a sample now. Hang tight.
+You can see a sample of the (current working master branch) code [here](http://prayers.bryankendall.com)
