@@ -1,6 +1,7 @@
 package main
 
 import (
+    "fmt"
     "net/http"
     "html/template"
     "time"
@@ -142,7 +143,8 @@ func getPrayer(integration string, id int32) *Prayer {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-    t, _ := template.ParseFiles("templates/home.html")
+    t, err := template.ParseFiles("templates/home.html")
+    if err != nil { panic(err.Error()) }
     t.Execute(w, nil)
 }
 
@@ -193,6 +195,10 @@ func main() {
     user_re := regexp.MustCompile("[a-zA-Z_-]+:[a-zA-Z0-9]+")
     host_re := regexp.MustCompile("[0-9]+.[0-9]+.[0-9]+.[0-9]+(:[0-9]+)?")
     db_re := regexp.MustCompile("[a-zA-Z]+$")
+    fmt.Println(db_url)
+    fmt.Println(user_re.FindString(db_url))
+    fmt.Println(host_re.FindString(db_url))
+    fmt.Println(db_re.FindString(db_url))
 
     db, err = sql.Open("mysql", user_re.FindString(db_url) + 
                                 "@tcp(" + host_re.FindString(db_url) + ")/" + 
@@ -209,5 +215,6 @@ func main() {
 
     port := os.Getenv("PRAYER_PORT")
     if port == "" { port = "80" }
-    http.ListenAndServe(":" + port, nil)
+    fmt.Println(port)
+    http.ListenAndServe("0.0.0.0:" + port, nil)
 }
