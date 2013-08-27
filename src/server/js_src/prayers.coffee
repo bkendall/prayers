@@ -3,7 +3,7 @@ placePrayers = (html) ->
 
 loadData =
     type: "POST"
-    url: "//home.bryankendall.com:9876/load"
+    url: "//prayers.bryankendall.com/load"
     async: false
     data:
         Integration: $("div#prayers").data("integration")
@@ -14,7 +14,7 @@ PrayerSubmitHandler = (event) ->
     event.preventDefault()
     postData =
         type: "POST"
-        url: "//home.bryankendall.com:9876/submit"
+        url: "//prayers.bryankendall.com/submit"
         data:
             Integration: $("div#prayers").data("integration")
             FirstName: $("input[name='FirstName']").val()
@@ -28,7 +28,7 @@ PrayHandler = (event) ->
     event.preventDefault()
     postData =
         type: "POST"
-        url: "//home.bryankendall.com:9876/pray"
+        url: "//prayers.bryankendall.com/pray"
         data:
             Integration: $("div#prayers").data("integration")
             Id: $(event.currentTarget).data("id")
